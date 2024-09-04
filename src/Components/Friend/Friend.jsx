@@ -17,6 +17,8 @@ const Friend = () => {
       const arr = [];
       snapshot.forEach((item) => {
         arr.push(item.val());
+        const data = item.val();
+        console.log('Item Data:', data);
       });
       setUsers(arr);
     });
@@ -36,7 +38,7 @@ const Friend = () => {
                     alt="image"
                   />
     
-          <p className="font-semibold text-[#001030] text-[15px] absolute left-[80px]">{item.userName}</p>
+          <p className="font-semibold text-[#001030] text-[15px] absolute left-[80px]">{item.username}</p>
     
           <button className="font-semibold text-white rounded-lg  text-[15px] py-2 px-5 bg-[#001030] absolute right-5 hover:bg-[#077eff]">Add</button>
           </div>
