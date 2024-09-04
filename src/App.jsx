@@ -7,6 +7,10 @@ import database from './firebase.config'
 import ResetPassword from './Components/ResetPassword/ResetPassword'
 import HomePage from './Pages/HomePage'
 import LayoutOne from './Layouts/LayoutOne'
+import Chat from './Components/Chat/Chat'
+import Friend from './Components/Friend/Friend'
+import Notification from './Components/Notification/Notification'
+import Setting from './Components/Setting/Setting'
 
 database
 
@@ -17,6 +21,10 @@ function App() {
       <Route>
         <Route path='/' element = {<LayoutOne/>} >
            <Route index element = {< HomePage />} />
+           <Route path='/chat' element = {< Chat />} />
+           <Route path='/friend' element = {< Friend />} />
+           <Route path='/notification' element = {< Notification />} />
+           <Route path='/setting' element = {< Setting />} />
         </Route>
         <Route path='/login' element = {< LoginPage />} />
         <Route path='/register' element = {< RegisterPage />} />

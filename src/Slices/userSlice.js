@@ -6,12 +6,12 @@ export const UserSlice = createSlice({
     userData: JSON.parse(localStorage.getItem('userData')) ?  JSON.parse(localStorage.getItem('userData')):null,
   },
   reducers: {
-    incrementByAmount: (state, action) => {
+    mainData: (state, action) => {
       state.userData = action.payload
     },
   },
 })
 
-export const {incrementByAmount } = UserSlice.actions
+export const {mainData } = UserSlice.actions
 
 export default UserSlice.reducer

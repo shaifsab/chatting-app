@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../Components/Home/Home.css'
 import { useSelector } from "react-redux";
+import Navbar from '../Navbar/Navbar';
 
 const Home = () => {
     const currentUserData = useSelector((state) => state.counter.userData);
@@ -8,13 +9,9 @@ const Home = () => {
   return (
     <>
       <div className='home-page'>
-        <div className="container">
-            <div className="main relative">
+            <div className="main-items relative ">
 
-                {/* top background */}
-                <div className="w-[1100px] h-[150px] top-0 absolute rounded-t-[15px] bg-[rgba(52,38,82,0.23)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[7.1px]"></div>
-
-                <div className="w-[1100px] absolute bottom-0  h-[400px] bg-white rounded-b-[15px]">
+                <div className="center flex flex-col items-center justify-center ">
                     {/* profile picture  */}
                     <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-gray-500 rounded-full overflow-hidden">
                         <img
@@ -33,7 +30,6 @@ const Home = () => {
                
             </div>
         </div>
-    </div>
     </>
   )
 }

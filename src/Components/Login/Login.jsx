@@ -11,6 +11,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import BarLoader from "react-spinners/BarLoader";
 import { useDispatch } from 'react-redux';
 import { mainData } from '../../Slices/userSlice';
+import { getDatabase, ref, set } from "firebase/database";
 
 const Login = () => {
 
@@ -24,7 +25,8 @@ const Login = () => {
     const dispatch                          = useDispatch()
 
     // firebase 
-    const auth = getAuth();
+    const auth                              = getAuth();
+    const db                                = getDatabase();
     const [loading , setLoading]            = useState(false)
 
 
@@ -96,9 +98,17 @@ const Login = () => {
                 navigate('/')
 
                 dispatch( mainData(user))
-                localStorage.setItem('userData', JSON.stringify(user))
+                localStorage.setItem('mainData', JSON.stringify(user))
+
+                // database
+                set(ref(db, 'users/' + user.uid), {
+                    username: user.displayName,
+                    userPhoto: user.photoURL,
+                    userId: user.uid
+                  });
             })
             .catch((error) => {
+                console.log(error);
                 toast.error('Please Type Valid Password', {
                     position: "top-right",
                     autoClose: 5000,
