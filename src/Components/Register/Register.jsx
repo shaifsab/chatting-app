@@ -88,7 +88,7 @@ const Register = () => {
                     // update user profile 
                     updateProfile(auth.currentUser, {
                         displayName: user,
-                        photoURL: "https://i.ibb.co/vZqVmsH/image.jpg"
+                        photoURL: "https://i.ibb.co/k48RycC/OIP.jpg"
                       })
     
                     // email verification 

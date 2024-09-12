@@ -104,7 +104,7 @@ const Login = () => {
                 set(ref(db, 'users/' + user.uid), {
                     username: user.displayName,
                     userPhoto: user.photoURL,
-                    userId: user.uid
+                    uid: user.uid,
                   });
             })
             .catch((error) => {

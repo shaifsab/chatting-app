@@ -6,7 +6,7 @@ const Navbar = () => {
     const currentUserData = useSelector((state) => state.counter.userData);
   return (
     <>
-      <div className="w-[300px] h-screen bg-[#001030] left-0 absolute flex flex-col justify-between">
+      <div className="w-[300px] h-screen bg-[#001030] left-0 absolute flex flex-col justify-between z-50 ">
         <nav className="flex flex-col pt-10 text-[20px] text-white">
 
             <NavLink 
@@ -32,14 +32,25 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink 
-            to="/friend" 
+            to="/users" 
             className={({ isActive }) =>
               isActive 
                 ? "pl-8 py-4 transition-all duration-200 ease-linear"
                 : "pl-8 py-4 hover:bg-[#077eff] transition-all duration-200 ease-linear"
             }
           >
-            Friend
+            Users
+          </NavLink>
+
+          <NavLink 
+            to="/friendRequest" 
+            className={({ isActive }) =>
+              isActive 
+                ? "pl-8 py-4 transition-all duration-200 ease-linear"
+                : "pl-8 py-4 hover:bg-[#077eff] transition-all duration-200 ease-linear"
+            }
+          >
+            Friend Request
           </NavLink>
 
           <NavLink 

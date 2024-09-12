@@ -11,6 +11,7 @@ import Chat from './Components/Chat/Chat'
 import Friend from './Components/Friend/Friend'
 import Notification from './Components/Notification/Notification'
 import Setting from './Components/Setting/Setting'
+import Users from './Components/Users/Users'
 
 database
 
@@ -22,7 +23,8 @@ function App() {
         <Route path='/' element = {<LayoutOne/>} >
            <Route index element = {< HomePage />} />
            <Route path='/chat' element = {< Chat />} />
-           <Route path='/friend' element = {< Friend />} />
+           <Route path='/users' element = {< Users />} />
+           <Route path='/friendRequest' element = {< Friend />} />
            <Route path='/notification' element = {< Notification />} />
            <Route path='/setting' element = {< Setting />} />
         </Route>
