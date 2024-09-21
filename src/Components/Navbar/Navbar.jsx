@@ -54,6 +54,17 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink 
+            to="/friends" 
+            className={({ isActive }) =>
+              isActive 
+                ? "pl-8 py-4 transition-all duration-200 ease-linear"
+                : "pl-8 py-4 hover:bg-[#077eff] transition-all duration-200 ease-linear"
+            }
+          >
+            Friends
+          </NavLink>
+
+          <NavLink 
             to="/notification" 
             className={({ isActive }) =>
               isActive 

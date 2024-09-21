@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, remove, set, push} from "firebase/database";
+import { useSelector } from "react-redux";
 
 
 const Friend = () => {
 
   // State
   const [friendRequest, setFriendRequest] = useState([])
+
+  // Redux
+  const sliceUser = useSelector((state) => state.counter.userData);
 
   // Firebase
   const db = getDatabase();
@@ -25,6 +29,25 @@ const Friend = () => {
     }
   },[])
 
+  // Confirm button
+  const handleConfirm = (data) =>{
+    // add data to the friend list
+     const db = getDatabase();
+     set(push(ref(db, 'friends/')), {
+      currentUserId: sliceUser.uid,
+      currentUserName: sliceUser.displayName,
+      currentUserPhoto: sliceUser.photoURL,
+      friendId: data.senderId,
+      friendName: data.senderName,
+      friendPhoto: data.senderPhoto,
+     });
+
+     console.log('click hoise')
+ 
+   // remove data from the friend request
+   remove(ref(db, 'friendRequest/' + data.key));
+ }
+
 
   return (
     <>
@@ -43,7 +66,7 @@ const Friend = () => {
           <p className="font-semibold text-[#001030] text-[15px] absolute left-[80px]">{item.senderName}</p>
 
           <div className="button flex gap-3 items-center absolute right-3">
-            <button  className="font-semibold text-white rounded-[15px]  text-[12px] py-1 px-2 bg-red-600 hover:bg-[#077eff]">Confirm</button>
+            <button onClick={()=>handleConfirm(item)} className="font-semibold text-white rounded-[15px]  text-[12px] py-1 px-2 bg-red-600 hover:bg-[#077eff]">Confirm</button>
             <button  className="font-semibold text-white rounded-[15px]  text-[12px] py-1 px-2 bg-red-600 hover:bg-[#077eff]">Remove</button>
           </div>
 

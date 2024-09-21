@@ -12,6 +12,7 @@ import Friend from './Components/Friend/Friend'
 import Notification from './Components/Notification/Notification'
 import Setting from './Components/Setting/Setting'
 import Users from './Components/Users/Users'
+import Friends from './Components/Friends/Friends'
 
 database
 
@@ -25,6 +26,7 @@ function App() {
            <Route path='/chat' element = {< Chat />} />
            <Route path='/users' element = {< Users />} />
            <Route path='/friendRequest' element = {< Friend />} />
+           <Route path='/friends' element = {< Friends />} />
            <Route path='/notification' element = {< Notification />} />
            <Route path='/setting' element = {< Setting />} />
         </Route>
